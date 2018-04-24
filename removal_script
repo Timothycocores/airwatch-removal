@@ -1,0 +1,26 @@
+#!/bin/sh 
+# 
+#unloads agent and daemons 
+launchctl unload /Library/LaunchDaemons/com.airwatch.AWRemoteManagementDaemon.plist
+launchctl unload /Library/LaunchDaemons/com.airwatch. AWRemoteManagementDaemon.plist 
+launchctl unload /Library/LaunchDaemons/com.airwatch.AWRemoteTunnelAgent.plist 
+launchctl unload /Library/LaunchDaemons/com.airwatch.airwatchd.plist 
+launchctl unload /Library/LaunchDaemons/com.airwatch.awcmd.plist 
+launchctl unload /Library/LaunchAgents/com.airwatch.mac.agent.plist 
+# 
+#"unloads" if the files are already gone
+launchctl remove com.airwatch.AWRemoteManagementDaemon.plist
+launchctl remove com.airwatch. AWRemoteManagementDaemon.plist 
+launchctl remove com.airwatch.AWRemoteTunnelAgent.plist 
+launchctl remove com.airwatch.airwatchd.plist 
+launchctl remove com.airwatch.awcmd.plist 
+launchctl remove com.airwatch.mac.agent.plist 
+#
+#removes files 
+killall "VMware AirWatch Agent" 
+rm -rf /Applications/VMware\ AirWatch\ Agent.app 
+rm -rf /Library/Application\ Support/AirWatch 
+rm /Library/LaunchAgents/com.airwatch.mac.agent.plist 
+rm /Library/LaunchDaemons/com.airwatch* 
+# 
+exit 0
